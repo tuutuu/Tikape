@@ -1,25 +1,18 @@
 package tikape;
 
 import java.sql.*;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Connection connection = DriverManager.getConnection("jdbc:sqlite:vuokraamo.db");
+        Database database = new Database("jdbc:sqlite:Tikape_sqlite.db");
+        database.setDebugMode(true);
+        
+        List<Avaus> avaukset = database.queryAndCollect("SELECT * FROM Avaus", new AvausCollector());
 
-        Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM Pyora;");
-
-        while (rs.next()) {
-            String rekisterinumero = rs.getString("rekisterinumero");
-            String merkki = rs.getString("merkki");
-
-            System.out.println(rekisterinumero + " " + merkki);
+        for (Avaus avaus : avaukset) {
+            System.out.println(avaus.getAvausnimi());
         }
-
-        stmt.close();
-        rs.close();
-
-        connection.close();
     }
 }
