@@ -62,14 +62,13 @@ public class ViestiDao implements Dao<Viesti, Integer> {
                 viesti.setAvaus(avaus);
             }
         }
-     connection.close();
+        connection.close();
         return viestit;
     }
 
-    
-
     @Override
-        public void delete(Integer key) throws SQLException {
+    public void delete(Integer key) throws SQLException {
         // ei toteutettu
     }
+
 }

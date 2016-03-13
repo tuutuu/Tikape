@@ -66,6 +66,7 @@ public class AlueDao implements Dao<Alue, Integer> {
 
     }
     
+    
  
 
 }
