@@ -10,7 +10,7 @@ package tikape;
 import java.util.*;
 import java.sql.*;
 
-public class avausDao implements Dao<Avaus, Integer> {
+public class AvausDao implements Dao<Avaus, Integer> {
 
     @Override
     public Avaus findOne(Integer key) throws SQLException {
