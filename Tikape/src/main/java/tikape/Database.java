@@ -1,5 +1,4 @@
 //best database
-
 package tikape;
 
 import java.sql.*;
@@ -9,16 +8,18 @@ public class Database<T> {
 
     private boolean debug;
     private Connection connection;
+    private String address;
 
     public Database(String address) throws Exception {
+        this.address = address;
         this.connection = DriverManager.getConnection(address);
     }
-    
+
     public int update(String updateQuery) throws SQLException {
         Statement stmt = connection.createStatement();
         int changes = stmt.executeUpdate(updateQuery);
 
-        if(debug) {
+        if (debug) {
             System.out.println("---");
             System.out.println(updateQuery);
             System.out.println("Changed rows: " + changes);
@@ -27,6 +28,10 @@ public class Database<T> {
         stmt.close();
 
         return changes;
+    }
+
+    public Connection getConnection() {
+        return this.connection;
     }
 
     public void setDebugMode(boolean d) {
