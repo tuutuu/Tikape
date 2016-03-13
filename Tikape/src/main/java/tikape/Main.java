@@ -6,16 +6,14 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Database database = new Database("jdbc:sqlite:vuokraamo.db");
+        Database database = new Database("jdbc:sqlite:Tikape_sqlite.db");
         AlueDao alueDao = new AlueDao(database);
         AvausDao avausDao = new AvausDao(database, alueDao);
         
-
-//     database.update("INSERT INTO Avaus (avaus_id, alue_id, avausnimi, avausteksti, aloitusaika) VALUES (4, 2, 'Onks ohjelmointi vaikeeta?', 'Onko?', CURRENT_TIMESTAMP)");
-
-        
-        Alue alue = alueDao.findOne(1);
-        System.out.println(alue.getAlue_id() + "-" + alue.getAlueennimi());
-
+       
+        Avaus avaus = avausDao.findOne(1);
+       System.out.println("-" + avaus.getAvausnimi());
+     //      Alue alue = alueDao.findOne(1);
+    //       System.out.println(alue.getAlueennimi());
     }
 }

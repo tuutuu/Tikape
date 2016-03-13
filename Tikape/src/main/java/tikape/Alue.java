@@ -25,4 +25,6 @@ public class Alue {
     public void setAlueennimi(String alueennimi) {
         this.alueennimi = alueennimi;
     }
+    
+ 
 }

@@ -34,13 +34,11 @@ public class AvausDao implements Dao<Avaus, Integer> {
 
         Avaus a = new Avaus(alue_id, avaus_id, avausnimi, avausteksti, aloitusaika);
        
-        Integer alue = rs.getInt("alue");
-        
+        a.setAlue(this.alueDao.findOne(alue_id));
+
         rs.close();
         stmt.close();
         connection.close();
-
-     //   a.setAlue(this.alueDao.findOne(alue));
         
         return a;
 

@@ -1,12 +1,13 @@
-
 package tikape;
 
 public class Avaus {
+
     private int avaus_id;
     private int alue_id;
     private String avausnimi;
     private String avausteksti;
     private String aloitusaika;
+    private Alue a;
 
     public Avaus(int avaus_id, int alue_id, String avausnimi, String avausteksti, String aloitusaika) {
         this.avaus_id = avaus_id;
@@ -24,8 +25,15 @@ public class Avaus {
         this.avaus_id = avaus_id;
     }
 
-    public int getAlue_id() {
-        return alue_id;
+    //  public int getAlue_id() {
+    //      return alue_id;
+    //   }
+    public void setAlue(Alue a) {
+        this.a = a;
+    }
+
+    public Alue getAlue() {
+        return this.a;
     }
 
     public void setAlue_id(int alue_id) {
@@ -55,5 +63,5 @@ public class Avaus {
     public void setAloitusaika(String aloitusaika) {
         this.aloitusaika = aloitusaika;
     }
-    
+
 }
