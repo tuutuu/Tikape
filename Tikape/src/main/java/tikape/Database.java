@@ -14,6 +14,10 @@ public class Database<T> {
         this.connection = DriverManager.getConnection(address);
     }
     
+    public Connection getConnection() {
+        return this.connection;
+    }
+    
     public int update(String updateQuery) throws SQLException {
         Statement stmt = connection.createStatement();
         int changes = stmt.executeUpdate(updateQuery);
