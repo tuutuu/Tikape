@@ -35,18 +35,37 @@ public class AlueDao implements Dao<Alue, Integer> {
         rs.close();
         stmt.close();
         connection.close();
-        
+
         return a;
     }
 
     @Override
     public List<Alue> findAll() throws SQLException {
-        // ei toteutettu
-        return null;
+        Connection connection = database.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Alue");
+
+        ResultSet rs = stmt.executeQuery();
+        List<Alue> alueet = new ArrayList<>();
+        while (rs.next()) {
+            Integer alue_id = rs.getInt("alue_id");
+            String alueennimi = rs.getString("alueennimi");
+
+            alueet.add(new Alue(alue_id, alueennimi));
+        }
+
+        rs.close();
+        stmt.close();
+        connection.close();
+
+        return alueet;
     }
 
     @Override
     public void delete(Integer key) throws SQLException {
         // ei toteutettu
+
     }
+    
+ 
+
 }

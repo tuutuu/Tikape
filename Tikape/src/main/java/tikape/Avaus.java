@@ -9,9 +9,8 @@ public class Avaus {
     private String aloitusaika;
     private Alue a;
 
-    public Avaus(int avaus_id, int alue_id, String avausnimi, String avausteksti, String aloitusaika) {
+    public Avaus(int avaus_id, String avausnimi, String avausteksti, String aloitusaika) {
         this.avaus_id = avaus_id;
-        this.alue_id = alue_id;
         this.avausnimi = avausnimi;
         this.avausteksti = avausteksti;
         this.aloitusaika = aloitusaika;

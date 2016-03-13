@@ -13,6 +13,6 @@ public class AvausCollector implements Collector<Avaus> {
         String avausteksti = rs.getString("avausteksti");
         String aloitusaika = rs.getString("aloitusaika");
         
-        return new Avaus(avaus_id, alue_id, avausnimi, avausteksti, aloitusaika);
+        return new Avaus(avaus_id, avausnimi, avausteksti, aloitusaika);
     }
 }

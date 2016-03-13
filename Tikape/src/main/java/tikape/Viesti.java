@@ -6,12 +6,21 @@ public class Viesti {
     private int avaus_id;
     private String sisalto;
     private String aikaleima;
+    private Avaus avaus;
 
-    public Viesti(String nimi, int avaus_id, String sisalto, String aikaleima) {
+    public Viesti(String nimi, String sisalto, String aikaleima) {
         this.nimi = nimi;
-        this.avaus_id = avaus_id;
         this.sisalto = sisalto;
         this.aikaleima = aikaleima;
+        
+    }
+    
+    public Avaus getAvaus() {
+    return this.avaus;
+    }
+    
+    public void setAvaus(Avaus avaus){
+    this.avaus = avaus;
     }
     
     public String getAikaleima() {
