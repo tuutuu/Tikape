@@ -4,6 +4,7 @@ import java.util.*;
 import java.sql.*;
 
 public class AvausDao implements Dao<Avaus, Integer> {
+<<<<<<< HEAD
 
     private Database database;
     private Dao<Alue, Integer> alueDao;
@@ -13,6 +14,8 @@ public class AvausDao implements Dao<Avaus, Integer> {
         this.alueDao = alueDao;
 
     }
+=======
+>>>>>>> 850dfdcba69bd72775e5571fb5461e6b811a1638
 
     @Override
     public Avaus findOne(Integer key) throws SQLException {
