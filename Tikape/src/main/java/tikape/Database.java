@@ -15,7 +15,6 @@ public class Database<T> {
         this.connection = DriverManager.getConnection(address);
     }
 
-
     
     public Connection getConnection() {
         return this.connection;

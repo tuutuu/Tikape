@@ -10,6 +10,9 @@ public class Main {
         AlueDao alueDao = new AlueDao(database);
         AvausDao avausDao = new AvausDao(database, alueDao);
         
+
+//     database.update("INSERT INTO Avaus (avaus_id, alue_id, avausnimi, avausteksti, aloitusaika) VALUES (4, 2, 'Onks ohjelmointi vaikeeta?', 'Onko?', CURRENT_TIMESTAMP)");
+
         
         Alue alue = alueDao.findOne(1);
         System.out.println(alue.getAlue_id() + "-" + alue.getAlueennimi());
