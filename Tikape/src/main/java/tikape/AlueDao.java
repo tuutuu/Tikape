@@ -5,23 +5,44 @@
  */
 package tikape;
 
-
-
 import java.util.*;
 import java.sql.*;
 
 public class AlueDao implements Dao<Alue, Integer> {
 
+    private Database database;
+
+    public AlueDao(Database database) {
+        this.database = database;
+    }
+
     @Override
     public Alue findOne(Integer key) throws SQLException {
-        // ei toteutettu
-        return null;
+        Connection connection = database.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Alue WHERE alue_id = ?");
+        stmt.setObject(1, key);
+
+        ResultSet rs = stmt.executeQuery();
+        boolean hasOne = rs.next();
+        if (!hasOne) {
+            return null;
+        }
+        Integer alue_id = rs.getInt("alue_id");
+        String alueennimi = rs.getString("alueennimi");
+
+        Alue a = new Alue(alue_id, alueennimi);
+
+        rs.close();
+        stmt.close();
+        connection.close();
+        
+        return a;
     }
 
     @Override
     public List<Alue> findAll() throws SQLException {
-	// ei toteutettu
-	return null;
+        // ei toteutettu
+        return null;
     }
 
     @Override
